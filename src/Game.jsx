@@ -114,7 +114,10 @@ export default function Game() {
   return (
     <div className="container">
       <div className="card-container">
-        <h1 className="text-3xl mb-4 text-center font-bold">¡A jugar!</h1>
+        <div className="title-container">
+          <h1 className="text-3xl mb-4 text-center font-bold">¡A jugar!</h1>
+          <span>Selecciona una opción y espera el turno del ordenador</span>
+        </div>
         <div className="row-container">
           {options.map((option) => (
             <OptionButton
