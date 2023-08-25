@@ -18,12 +18,17 @@ const getResult = (userChoice, computerChoice) => {
     return 0;
   }
 
-  if (options[userChoice].beats.includes(computerChoice)) {
+  if (
+    userChoice !== null &&
+    computerChoice !== null &&
+    options[userChoice]?.beats.includes(computerChoice)
+  ) {
     return 1;
   }
 
   return 2;
 };
+
 
 function OptionButton({ option, handlePlay, disabled }) {
   return (
@@ -145,8 +150,8 @@ export default function Game() {
                 <div className="result">
                   <img src={Victoria} alt="emoji de victoria" />
                   <p className="text-xl mt-4">
-                    Has ganado con {options[userChoice]?.name} contra{" "}
-                    {options[computerChoice]?.name}
+                    Has ganado con {userChoice !== null && options[userChoice]?.name} contra{" "}
+                    {computerChoice !== null && options[computerChoice]?.name}
                   </p>
                 </div>
               )}
@@ -154,8 +159,8 @@ export default function Game() {
                 <div className="result">
                   <img src={Derrota} alt="emoji de derrota" />
                   <p className="text-xl mt-4">
-                    Has perdido con {options[userChoice]?.name} contra{" "}
-                    {options[computerChoice]?.name}
+                    Has perdido con {userChoice !== null && options[userChoice]?.name} contra{" "}
+                    {computerChoice !== null && options[computerChoice]?.name}
                   </p>
                 </div>
               )}
